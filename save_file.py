@@ -9,25 +9,25 @@ def save_file(fname, ext, s, replace=True):
     :param: replace default (True):: overwrite
     """
     import os
-    
-    # check if outname has an extension
+
+   # check if fname has an extension:
     try:
         i = fname.index('.' , -6)
-        fname = fname[:i] + '.' + ext
+        outfile = fname[:i] + '.' + 'json'
     except:
-        fname = fname + '.' + ext
+        outfile = fname + '.' + 'json'
     
     if replace:
-        if os.path.exists(fname):
-            os.remove(fname)
+        if os.path.exists(outfile):
+            os.remove(outfile)
 
     if isinstance(s, dict):
         import json
-        
-        with open(fname, 'w') as f:
+
+        with open(outfile, 'w') as f:
             f.write(json.dumps(s))
     else:
         if len(s):
-            with open(fname, 'w') as f:
+            with open(outfile, 'w') as f:
                 f.write(s)
     return
