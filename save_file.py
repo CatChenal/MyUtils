@@ -13,9 +13,9 @@ def save_file(fname, ext, s, replace=True):
    # check if fname has an extension:
     try:
         i = fname.index('.' , -6)
-        outfile = fname[:i] + '.' + 'json'
+        outfile = fname[:i] + '.' + ext
     except:
-        outfile = fname + '.' + 'json'
+        outfile = fname + '.' + ext
     
     if replace:
         if os.path.exists(outfile):
